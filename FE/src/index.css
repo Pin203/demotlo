@@ -1,0 +1,37 @@
+@import "tailwindcss";
+ 
+/* Bảng màu + font của Treollo. Tailwind tự biến mỗi dòng thành class,
+   ví dụ --color-neon thành bg-neon, text-neon, border-neon */
+@theme {
+  --color-void: #0a0a14;      /* nền chính */
+  --color-panel: #12121f;     /* nền khung, form */
+  --color-line: #2a2a45;      /* đường viền mảnh */
+  --color-neon: #00f0ff;      /* màu nhấn chính (cyan) */
+  --color-magenta: #ff2a6d;   /* màu nhấn phụ: đăng xuất, lỗi */
+  --color-ink: #e8e8ff;       /* chữ chính */
+  --color-dim: #8a8aa8;       /* chữ phụ */
+ 
+  --font-sans: "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+ 
+  --shadow-glow: 0 0 12px rgb(0 240 255 / 0.55);
+}
+ 
+/* Góc cắt vát: nhận diện chung cho nút, avatar, khung form.
+   Lưu ý: clip-path cắt luôn viền focus và đổ bóng, nên phần tử có
+   class này đổi màu nền khi focus thay vì dùng outline. */
+@utility chamfer {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+ 
+body {
+  margin: 0;
+  background-color: var(--color-void);
+  /* lưới rất mờ làm nền */
+  background-image:
+    linear-gradient(rgb(0 240 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(0 240 255 / 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
